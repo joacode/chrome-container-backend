@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  chrome_container_backend_db:
+    container_name: "chrome_container_backend_db"
+    image: postgres:16-alpine
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - POSTGRES_USER=chrome_container_backend
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=chrome_container_backend_db
+    ports:
+      - "5332:5332"
+    volumes:
+      - chrome_container_backend_db:/var/lib/postgresql/data
+    command: -p 5332
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  chrome_container_backend_db:
+    driver: local

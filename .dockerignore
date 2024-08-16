@@ -1,0 +1,12 @@
+node_modules
+.git
+README.md
+docker-compose.yml
+.prettierrc
+.prettierignore
+.gitignore
+.eslintrc.js
+.eslintignore
+.env
+migration/
+/**/.eslintcache
